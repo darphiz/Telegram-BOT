@@ -8,9 +8,14 @@ import csv
 import traceback
 import time
 
-api_id = 8850461
-api_hash = 'eabed5a5550cab1f26df8b9e8824c489'
-phone = '+2347068533426'
+import os
+from dotenv import load_dotenv
+project_folder = os.path.expanduser('../tele_scrape/') 
+load_dotenv(os.path.join(project_folder, '.env'))
+
+api_id = os.getenv("API_ID") 
+api_hash = os.getenv("API_HASH")
+phone = os.getenv("PHONE")
 client = TelegramClient(phone, api_id, api_hash)
 
 client.connect()
